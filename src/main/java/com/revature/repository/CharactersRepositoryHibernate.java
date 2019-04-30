@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.revature.model.Characters;
@@ -20,22 +21,29 @@ public class CharactersRepositoryHibernate implements CharactersRepository {
 	public CharactersRepositoryHibernate() {}
 
 	public void save(Characters character) {
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().save(character);
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Characters> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return sessionFactory.getCurrentSession().createCriteria(Characters.class).list();
 	}
 
 	public Characters findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return (Characters) sessionFactory.getCurrentSession().createCriteria(Characters.class)
+					.add(Restrictions.like("charid", id))
+					.list()
+					.get(0);
+		}
+		catch(IndexOutOfBoundsException e) {
+			return null;
+		}
 	}
 
 	public void remove(Characters character) {
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().delete(character);
 		
 	}
 	
