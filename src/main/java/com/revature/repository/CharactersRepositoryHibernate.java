@@ -1,15 +1,19 @@
 package com.revature.repository;
 
 import java.util.List;
-import java.util.logging.Logger;
 
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.revature.model.Characters;
+
 public class CharactersRepositoryHibernate implements CharactersRepository {
 
+	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger(CharactersRepositoryHibernate.class);
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private SessionFactory sessionFactory;
 	

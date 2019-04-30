@@ -1,20 +1,24 @@
 package com.revature.repository;
 
 import java.util.List;
-import java.util.logging.Logger;
 
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.revature.model.Campaign;
 
 @Repository("campaignRepository")
 @Transactional
 public class CampaignRepositoryHibernate implements CampaignRepository {
 
 	
+	@SuppressWarnings("unused")
 	private static Logger logger = Logger.getLogger(CampaignRepositoryHibernate.class);
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private SessionFactory sessionFactory;
 	
