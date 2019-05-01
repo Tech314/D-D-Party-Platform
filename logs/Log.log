@@ -16128,3 +16128,19 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: ORA-02291: integri
 2019-04-30 15:18:40 DEBUG LogicalConnectionImpl:246 - Releasing JDBC connection
 2019-04-30 15:18:40 DEBUG LogicalConnectionImpl:264 - Released JDBC connection
 2019-04-30 15:18:40 TRACE LogicalConnectionImpl:190 - Logical connection closed
+2019-05-01 15:17:39 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2019-05-01 15:17:39 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2019-05-01 15:17:39 DEBUG StandardEnvironment:124 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2019-05-01 15:17:39 INFO  ClassPathXmlApplicationContext:583 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1c655221: startup date [Wed May 01 15:17:39 EDT 2019]; root of context hierarchy
+2019-05-01 15:17:39 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2019-05-01 15:17:39 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2019-05-01 15:17:39 DEBUG StandardEnvironment:124 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2019-05-01 15:17:39 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [applicationContext.xml]
+2019-05-01 15:23:38 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2019-05-01 15:23:38 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2019-05-01 15:23:38 DEBUG StandardEnvironment:124 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2019-05-01 15:23:38 INFO  ClassPathXmlApplicationContext:583 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1c655221: startup date [Wed May 01 15:23:38 EDT 2019]; root of context hierarchy
+2019-05-01 15:23:38 DEBUG StandardEnvironment:109 - Adding [systemProperties] PropertySource with lowest search precedence
+2019-05-01 15:23:38 DEBUG StandardEnvironment:109 - Adding [systemEnvironment] PropertySource with lowest search precedence
+2019-05-01 15:23:38 DEBUG StandardEnvironment:124 - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2019-05-01 15:23:38 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [applicationContext.xml]
