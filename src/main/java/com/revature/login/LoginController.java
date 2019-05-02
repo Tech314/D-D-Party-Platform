@@ -22,9 +22,9 @@ public class LoginController {
 
   @RequestMapping(method = RequestMethod.POST)
   public String submit(Model model, @ModelAttribute("loginBean") Campaign camp) {
-    if (camp != null && camp.getUserName() != null & camp.getPassword() != null) {
-      if (camp.getUserName().equals("") && camp.getPassword().equals("")) {
-        model.addAttribute("msg", camp.getUserName());
+    if (camp != null && camp.getCampaignName() != null & camp.getCampaignPass() != null) {
+      if (camp.getCampaignName().equals("") && camp.getCampaignPass().equals("")) {
+        model.addAttribute("msg", camp.getCampaignName());
         return "success";
       } else {
         model.addAttribute("error", "Invalid Details");
