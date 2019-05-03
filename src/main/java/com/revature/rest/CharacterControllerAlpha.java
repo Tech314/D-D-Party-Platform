@@ -1,7 +1,7 @@
 package com.revature.rest;
 
-//import static com.revature.util.ClientMessageUtil.REGISTRATION_SUCCESSFUL;
-//import static com.revature.util.ClientMessageUtil.SOMETHING_WENT_WRONG;
+import static com.revature.util.ClientMessageUtil.REGISTRATION_SUCCESSFUL;
+import static com.revature.util.ClientMessageUtil.SOMETHING_WENT_WRONG;
 
 import java.util.List;
 
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.model.Characters;
 import com.revature.service.CharactersService;
+import com.revature.util.ClientMessage;
 
 //import com.revature.ajax.ClientMessage;
 
@@ -34,12 +35,12 @@ public class CharacterControllerAlpha implements CharacterController {
 		return charService.getAllCharacters();
 	}
 
-//	@PostMapping("/register")
-//	public @ResponseBody ClientMessage registerCharacter(@RequestBody Characters character) {
-//		logger.trace("registering new character: " + character);
-//	
-//		return charService.createCharacters(character) ? REGISTRATION_SUCCESSFUL:SOMETHING_WENT_WRONG;
-//	}
+	@PostMapping("/register")
+	public @ResponseBody ClientMessage registerCharacter(@RequestBody Characters character) {
+		logger.trace("registering new character: " + character);
+	
+		return charService.createCharacters(character) ? REGISTRATION_SUCCESSFUL:SOMETHING_WENT_WRONG;
+	}
 
 	@PostMapping("/findCharacter")
 	public @ResponseBody Characters findCharacter(@RequestBody Characters character) {

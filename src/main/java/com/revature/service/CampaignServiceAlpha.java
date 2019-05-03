@@ -28,4 +28,9 @@ public class CampaignServiceAlpha implements CampaignService{
 	public Campaign getCampaignById(int id) {
 		return campaignRepository.findById(id);
 	}
+
+	public Campaign loginToCampaign(String username, String password) {
+		
+		return campaignRepository.login(username, password);
+	}
 }

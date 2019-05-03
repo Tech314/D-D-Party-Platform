@@ -37,4 +37,10 @@ public class CampaignControllerAlpha implements CampaignController{
 		return campaignService.getCampaignById(id);
 	}
 
+	@GetMapping("loginToCampaign")
+	public Campaign loginToCampaign(String username, String password) {
+		logger.trace("Attempting login");
+		return null;
+	}
+
 }

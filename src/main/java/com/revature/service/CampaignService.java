@@ -8,4 +8,5 @@ public interface CampaignService {
 	public boolean createCampaign(Campaign campaign);
 	List<Campaign> getAllCampaigns();
 	Campaign getCampaignById(int id);
+	Campaign loginToCampaign(String username,String password);
 }
