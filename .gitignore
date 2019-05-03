@@ -6,3 +6,4 @@
 *mvn*
 *.properties
 Driver.java
+applicationContext.xml
