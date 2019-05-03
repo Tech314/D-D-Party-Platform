@@ -3,11 +3,11 @@ package com.revature.model;
 public class DiceResponse {
 
 	private boolean success;
-	private Dice dice;
+	private Dice[] dice;
 	
 	public DiceResponse() {}
 
-	public DiceResponse(boolean success, Dice dice) {
+	public DiceResponse(boolean success, Dice[] dice) {
 		super();
 		this.success = success;
 		this.dice = dice;
@@ -21,11 +21,11 @@ public class DiceResponse {
 		this.success = success;
 	}
 
-	public Dice getDice() {
+	public Dice[] getDice() {
 		return dice;
 	}
 
-	public void setDice(Dice dice) {
+	public void setDice(Dice[] dice) {
 		this.dice = dice;
 	}
 
