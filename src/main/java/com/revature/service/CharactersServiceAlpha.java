@@ -2,7 +2,6 @@ package com.revature.service;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +10,6 @@ import com.revature.repository.CharactersRepository;
 
 @Service("charactersService")
 public class CharactersServiceAlpha implements CharactersService{
-	private static Logger logger = Logger.getLogger(CharactersServiceAlpha.class);
 
 	@Autowired
 	private CharactersRepository charactersRepository;

@@ -28,7 +28,7 @@ public class CampaignRepositoryHibernate implements CampaignRepository {
 	public Campaign findById(int id) {
 		try {
 			return (Campaign) sessionFactory.getCurrentSession().createCriteria(Campaign.class)
-					.add(Restrictions.like("campaign_id", id))
+					.add(Restrictions.like("campaignId", id))
 					.list()
 					.get(0);
 		}

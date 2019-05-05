@@ -37,7 +37,7 @@ public class CharactersRepositoryHibernate implements CharactersRepository {
 	public Characters findById(int id) {
 		try {
 			return (Characters) sessionFactory.getCurrentSession().createCriteria(Characters.class)
-					.add(Restrictions.like("charid", id))
+					.add(Restrictions.like("charId", id))
 					.list()
 					.get(0);
 		}
