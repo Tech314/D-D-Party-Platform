@@ -3,13 +3,13 @@ package com.revature.model;
 public class Dice {
 
 	private int value;
-	private String name;
+	private String type;
 	
 	public Dice() {}
 	
-	public Dice(int value, String name) {
+	public Dice(int value, String type) {
 		this.value = value;
-		this.name = name;
+		this.type = type;
 	}
 
 	public int getValue() {
@@ -20,17 +20,17 @@ public class Dice {
 		this.value = value;
 	}
 
-	public String getName() {
-		return name;
+	public String getType() {
+		return type;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
 	public String toString() {
-		return "Dice [value=" + value + ", name=" + name + "]";
+		return "Dice [value=" + value + ", name=" + type + "]";
 	}
 	
 	

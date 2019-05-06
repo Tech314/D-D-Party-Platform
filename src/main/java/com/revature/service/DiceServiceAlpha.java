@@ -16,7 +16,7 @@ public class DiceServiceAlpha implements DiceService {
 	public DiceResponse roll(Dice dice) {
 		logger.trace("Getting dice roll");
 		RestTemplate restTemplate = new RestTemplate();
-		String api_url = "http://roll.diceapi.com/json/" + dice.getName();
+		String api_url = "http://roll.diceapi.com/json/" + dice.getType();
 		DiceResponse response = restTemplate.getForObject(api_url,DiceResponse.class);
 		return response;
 	}
