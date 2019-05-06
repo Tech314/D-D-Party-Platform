@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.revature.model.Campaign;
 import com.revature.service.CampaignService;
@@ -37,7 +38,7 @@ public class CampaignControllerAlpha implements CampaignController{
 		return campaignService.getCampaignById(id);
 	}
 
-	@GetMapping("loginToCampaign")
+	@PostMapping("loginToCampaign")
 	public Campaign loginToCampaign(String username, String password) {
 		logger.trace("Attempting login");
 		return campaignService.loginToCampaign(username, password);
