@@ -8,5 +8,5 @@ public interface CampaignController {
 	public boolean makeCampaign(Campaign campaign);
 	List<Campaign> findAllCampaigns();
 	Campaign findCampaignById(int id);
-	Campaign loginToCampaign(String username, String password);
+	Campaign loginToCampaign(Campaign camp);
 }
