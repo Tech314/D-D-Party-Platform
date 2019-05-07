@@ -44,10 +44,16 @@ public class Characters {
 	@Column(name="attacks_spells")
 	private String attackSpells;
 	
+	@Column(name="race")
+	private String charRace;
+	
+	@Column(name="class")
+	private String charClass;
+	
 	public Characters() {}
 
 	public Characters(int charId, String charName, int charLvl, int charExp, String equipment, String items,
-			String skills, String traits, String stats, String attackSpells) {
+			String skills, String traits, String stats, String attackSpells, String charRace, String charClass) {
 		this.charId = charId;
 		this.charName = charName;
 		this.charLvl = charLvl;
@@ -58,8 +64,26 @@ public class Characters {
 		this.traits = traits;
 		this.stats = stats;
 		this.attackSpells = attackSpells;
+		this.charRace = charRace;
+		this.charClass = charClass;
 	}
 
+	
+	public String getCharRace() {
+		return charRace;
+	}
+	
+	public void setCharRace() {
+		this.charRace = charRace;
+	}
+	
+	public String getCharClass() {
+		return charClass;
+	}
+	
+	public void setCharClass() {
+		this.charClass = charClass;
+	}
 	public int getCharId() {
 		return charId;
 	}
@@ -144,7 +168,8 @@ public class Characters {
 	public String toString() {
 		return "Characters [charId=" + charId + ", charName=" + charName + ", charLvl=" + charLvl + ", charExp="
 				+ charExp + ", equipment=" + equipment + ", items=" + items + ", skills=" + skills + ", traits="
-				+ traits + ", stats=" + stats + ", attackSpells=" + attackSpells + "]";
+				+ traits + ", stats=" + stats + ", attackSpells=" + attackSpells + ", charRace=" + charRace +
+				", charClass=" + charClass + "]";
 	}
 	
 	
