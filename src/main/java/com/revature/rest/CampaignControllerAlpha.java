@@ -42,7 +42,7 @@ public class CampaignControllerAlpha implements CampaignController{
 		return campaignService.getCampaignById(id);
 	}
 
-	@PostMapping("loginToCampaign")
+	@GetMapping("loginToCampaign")
 	public @ResponseBody Campaign loginToCampaign(@RequestBody Campaign camp) {
 		logger.trace("Attempting login");
 		return campaignService.loginToCampaign(camp.getCampaignName(),camp.getCampaignPass());
