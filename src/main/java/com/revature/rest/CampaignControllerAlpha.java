@@ -4,19 +4,21 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Campaign;
 import com.revature.service.CampaignService;
 
 
-@Controller("campaignController")
+@RestController("campaignController")
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path = "/campaign", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class CampaignControllerAlpha implements CampaignController{
 
 	private static Logger logger = Logger.getLogger(CampaignControllerAlpha.class);
@@ -43,7 +45,7 @@ public class CampaignControllerAlpha implements CampaignController{
 	}
 
 	@GetMapping("loginToCampaign")
-	public @ResponseBody Campaign loginToCampaign(@RequestBody Campaign camp) {
+	public Campaign loginToCampaign(@RequestBody Campaign camp) {
 		logger.trace("Attempting login");
 		return campaignService.loginToCampaign(camp.getCampaignName(),camp.getCampaignPass());
 	}
