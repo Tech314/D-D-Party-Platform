@@ -7,13 +7,14 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Characters;
@@ -32,22 +33,53 @@ public class CharacterControllerAlpha implements CharacterController {
 	private CharactersService charService;
 	
 	@GetMapping("/findAllCharacters")
-	public  @ResponseBody List<Characters> findAllCharacters() {
+	public List<Characters> findAllCharacters() {
 		logger.trace("getting list of all characters");
 		return charService.getAllCharacters();
 	}
 
-//	@PostMapping("/register")
-//	public @ResponseBody ClientMessage registerCharacter(@RequestBody Characters character) {
-//		logger.trace("registering new character: " + character);
-//	
-//		return charService.createCharacters(character) ? REGISTRATION_SUCCESSFUL:SOMETHING_WENT_WRONG;
-//	}
 
-	@PostMapping("/find")
+	@PostMapping("/findCharacter")
 	public Characters findCharacter(@RequestBody Characters character) {
 		logger.trace("find character with name: " + character.getCharName());
 		return charService.getCharactersById((character.getCharId()));
+	}
+
+
+
+	@GetMapping("/race")
+	public ResponseEntity<Characters> getRace() {
+		Characters charRace = charService.getRace();
+		return new ResponseEntity<>(charRace,HttpStatus.OK); 
+				
+	}
+
+
+	@GetMapping("/class")
+	public ResponseEntity<Characters> getClasses() {
+		Characters charClass = charService.getClasses();
+		return new ResponseEntity<>(charClass,HttpStatus.OK);
+	}
+
+
+	@GetMapping("/stats")
+	public ResponseEntity<Characters> getStats() {
+		Characters charStats = charService.getStats();
+		return new ResponseEntity<>(charStats, HttpStatus.OK);
+	}
+
+
+	@PostMapping("/equipment")
+	public ResponseEntity<Characters> getEquipment(String classs) {
+		Characters charEquipment = charService.getEquipment(classs);
+		return new ResponseEntity<>(charEquipment, HttpStatus.OK);
+	}
+
+
+	@GetMapping("/name")
+	public ResponseEntity<Characters> getName() {
+		Characters charName = charService.getName();
+		return new ResponseEntity<>(charName, HttpStatus.OK);
 	}
 
 }
