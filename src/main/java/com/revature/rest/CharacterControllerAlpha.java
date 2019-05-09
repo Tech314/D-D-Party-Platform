@@ -33,54 +33,54 @@ public class CharacterControllerAlpha implements CharacterController {
 	@Autowired
 	private CharactersService charService;
 	
-	@GetMapping("findAllCharacters")
-	public  @ResponseBody List<Characters> findAllCharacters() {
+	@GetMapping("/findAllCharacters")
+	public List<Characters> findAllCharacters() {
 		logger.trace("getting list of all characters");
 		return charService.getAllCharacters();
 	}
 
 
-	@PostMapping("findCharacter")
-	public @ResponseBody Characters findCharacter(@RequestBody Characters character) {
+	@PostMapping("/findCharacter")
+	public Characters findCharacter(@RequestBody Characters character) {
 		logger.trace("find character with name: " + character.getCharName());
 		return charService.getCharactersById((character.getCharId()));
 	}
 
 
 
-	@PostMapping("getRace")
-	public ResponseEntity<Object> getRace() {
-		charService.getRace();
-		return new ResponseEntity<>(HttpStatus.OK); 
+	@GetMapping("/race")
+	public ResponseEntity<Characters> getRace() {
+		Characters charRace = charService.getRace();
+		return new ResponseEntity<>(charRace,HttpStatus.OK); 
 				
 	}
 
 
-	@PostMapping("getClass")
-	public ResponseEntity<Object> getClasses() {
-		charService.getClasses();
-		return new ResponseEntity<>(HttpStatus.OK);
+	@GetMapping("/class")
+	public ResponseEntity<Characters> getClasses() {
+		Characters charClass = charService.getClasses();
+		return new ResponseEntity<>(charClass,HttpStatus.OK);
 	}
 
 
-	@PostMapping("getStats")
-	public ResponseEntity<Object> getStats() {
-		charService.getStats();
-		return new ResponseEntity<>(HttpStatus.OK);
+	@GetMapping("/stats")
+	public ResponseEntity<Characters> getStats() {
+		Characters charStats = charService.getStats();
+		return new ResponseEntity<>(charStats, HttpStatus.OK);
 	}
 
 
-	@PostMapping("getEquipment")
-	public ResponseEntity<Object> getEquipment(String classs) {
-		charService.getEquipment(classs);
-		return new ResponseEntity<>(HttpStatus.OK);
+	@PostMapping("/equipment")
+	public ResponseEntity<Characters> getEquipment(String classs) {
+		Characters charEquipment = charService.getEquipment(classs);
+		return new ResponseEntity<>(charEquipment, HttpStatus.OK);
 	}
 
 
-	@PostMapping("getName")
-	public ResponseEntity<Object> getName() {
-		charService.getName();
-		return new ResponseEntity<>(HttpStatus.OK);
+	@GetMapping("/name")
+	public ResponseEntity<Characters> getName() {
+		Characters charName = charService.getName();
+		return new ResponseEntity<>(charName, HttpStatus.OK);
 	}
 
 }
