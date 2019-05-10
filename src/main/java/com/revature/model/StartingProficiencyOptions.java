@@ -1,13 +1,13 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class StartingProficiencyOptions {
 
 	private Integer choose;
 	private String type;
 	private From[] from;
+	
+	public StartingProficiencyOptions() {}
 	
 	public Integer getChoose() {
 		return choose;

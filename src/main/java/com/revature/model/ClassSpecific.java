@@ -1,8 +1,6 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class ClassSpecific {
 	
 	private Integer rage_count;
@@ -33,6 +31,7 @@ public class ClassSpecific {
 	private Integer mystic_arcanum_level_8;
 	private Integer mystic_arcanum_level_9;
 	
+	public ClassSpecific() {}
 	
 	public ClassSpecific(Integer rage_count, Integer rage_damage_bonus, Integer brutal_critical_dice,
 			Integer arcane_recovery_levels, Integer channel_divinity_charges, Integer destroy_undead_cr,

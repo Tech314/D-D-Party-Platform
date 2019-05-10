@@ -2,7 +2,7 @@ package com.revature.model;
 
 import javax.persistence.Entity;
 
-@Entity
+
 public class CharacterClass {
 
 	private String _id;
@@ -17,6 +17,7 @@ public class CharacterClass {
 	private String url;
 	private Spellcasting spellcasting;
 	
+	public CharacterClass() {}
 	
 	public CharacterClass(String _id, Integer level, Integer ability_score_bonuses, Integer prof_bouse,
 			FeatureChoices feature_choices, Features features, ClassSpecific class_specific, Integer index,

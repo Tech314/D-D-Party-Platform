@@ -1,12 +1,12 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Features {
 	
 	private String name;
 	private String url;
+	
+	public Features() {}
 	
 	public Features(String name, String url) {
 		super();

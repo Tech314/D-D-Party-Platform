@@ -1,12 +1,13 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class StartingEquipment {
 	
 	private Integer quantity;
 	private Item item;
+	
+	public StartingEquipment() {}
+	
 	public StartingEquipment(Integer quantity, Item item) {
 		super();
 		this.quantity = quantity;

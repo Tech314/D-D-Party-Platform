@@ -1,12 +1,12 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Languages {
 
 	private String name;
 	private String url;
+	
+	public Languages() {}
 	
 	public Languages(String name, String url) {
 		super();

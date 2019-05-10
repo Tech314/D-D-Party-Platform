@@ -1,13 +1,13 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Traits {
 
 	
 	private String name;
 	private String url;
+	
+	public Traits() {}
 	
 	public Traits(String name, String url) {
 		super();

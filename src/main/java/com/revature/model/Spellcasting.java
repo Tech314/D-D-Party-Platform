@@ -4,13 +4,6 @@ public class Spellcasting {
 
 	private Integer cantrips_known;
 	private Integer spells_known;
-	public Integer getSpells_known() {
-		return spells_known;
-	}
-	public void setSpells_known(Integer spells_known) {
-		this.spells_known = spells_known;
-	}
-
 	private Integer spell_slots_level_1;
 	private Integer spell_slots_level_2;
 	private Integer spell_slots_level_3;
@@ -20,6 +13,15 @@ public class Spellcasting {
 	private Integer spell_slots_level_7;
 	private Integer spell_slots_level_8;
 	private Integer spell_slots_level_9;
+	
+	public Integer getSpells_known() {
+		return spells_known;
+	}
+	public void setSpells_known(Integer spells_known) {
+		this.spells_known = spells_known;
+	}
+
+	
 	
 	
 	public void setSpell_slots_level_9(Integer spell_slots_level_9) {
@@ -82,6 +84,8 @@ public class Spellcasting {
 	public Integer getSpell_slots_level_9() {
 		return spell_slots_level_9;
 	}
+	
+	public Spellcasting() {}
 	
 	public Spellcasting(Integer spells_known, Integer cantrips_known, Integer spell_slots_level_1, Integer spell_slots_level_2,
 			Integer spell_slots_level_3, Integer spell_slots_level_4, Integer spell_slots_level_5,

@@ -1,8 +1,6 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class CharacterRace {
 
 	private String _id;
@@ -21,6 +19,8 @@ public class CharacterRace {
 	private Traits[] traits;
 	private Subraces[] subraces;
 	private String url;
+	
+	public CharacterRace() {}
 	
 	public CharacterRace(String _id, Integer index, String name, Integer speed, Integer[] ability_bonuses,
 			String alignment, String age, String size, String size_description,

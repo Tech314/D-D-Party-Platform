@@ -1,12 +1,12 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Subraces {
 
 	private String name;
 	private String url;
+	
+	public Subraces() {}
 	
 	public Subraces(String name, String url) {
 		super();

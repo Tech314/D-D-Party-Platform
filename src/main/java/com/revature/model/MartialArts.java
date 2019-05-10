@@ -1,12 +1,12 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class MartialArts {
 
 	private Integer dice_count;
 	private Integer dice_value;
+	
+	public MartialArts() {}
 	
 	public MartialArts(Integer dice_count, Integer dice_value) {
 		super();

@@ -1,12 +1,12 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class CreatingSpellSlots {
 
 	private Integer sorcery_spell_cost;
 	private Integer spell_slot_level;
+	
+	public CreatingSpellSlots() {}
 	
 	public CreatingSpellSlots(Integer sorcery_spell_cost, Integer spell_slot_level) {
 		super();

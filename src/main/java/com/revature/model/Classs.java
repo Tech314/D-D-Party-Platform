@@ -8,6 +8,8 @@ public class Classs {
 	private String name;
 	private String url;
 	
+	public Classs() {}
+	
 	public Classs(String name, String url) {
 		super();
 		this.name = name;

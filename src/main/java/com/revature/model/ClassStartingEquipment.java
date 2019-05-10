@@ -1,8 +1,6 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class ClassStartingEquipment {
 
 	private String _id;
@@ -16,6 +14,8 @@ public class ClassStartingEquipment {
 	private Choice2[] choice_5;
 	private String url;
 	private Classs classs;
+	
+	public ClassStartingEquipment() {}
 	
 	public ClassStartingEquipment(String _id, Integer index, StartingEquipment starting_equipment,
 			Integer choices_to_make, Choice1[] choice_1, Choice2[] choice_2, Choice2[] choice_3, Choice2[] choice_4,

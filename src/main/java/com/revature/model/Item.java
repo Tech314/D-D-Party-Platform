@@ -1,12 +1,13 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Item {
 
 	private String name;
 	private String url;
+	
+	public Item() {}
+	
 	public Item(String name, String url) {
 		super();
 		this.name = name;

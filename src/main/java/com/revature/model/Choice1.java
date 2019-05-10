@@ -1,13 +1,14 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Choice1 {
 
 	private From[] from;
 	private String type;
 	private Integer choose;
+	
+	public Choice1() {}
+	
 	public From[] getFrom() {
 		return from;
 	}
