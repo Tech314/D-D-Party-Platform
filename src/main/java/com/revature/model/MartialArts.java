@@ -1,6 +1,9 @@
 package com.revature.model;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0fac3f4fa8662bd7ed7e0511ab2dd6f671f8eef7
 public class MartialArts {
 
 	private Integer dice_count;

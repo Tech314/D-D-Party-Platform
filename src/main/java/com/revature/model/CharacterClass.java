@@ -1,8 +1,11 @@
 package com.revature.model;
 
+<<<<<<< HEAD
 import javax.persistence.Entity;
 
 
+=======
+>>>>>>> 0fac3f4fa8662bd7ed7e0511ab2dd6f671f8eef7
 public class CharacterClass {
 
 	private String _id;
