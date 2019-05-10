@@ -1,8 +1,5 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
-
-@Entity
 public class CreatingSpellSlots {
 
 	private Integer sorcery_spell_cost;

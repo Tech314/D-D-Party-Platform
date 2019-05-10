@@ -1,8 +1,5 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
-
-@Entity
 public class Classs {
 
 	private String name;

@@ -1,8 +1,5 @@
 package com.revature.model;
 
-import javax.persistence.Entity;
-
-@Entity
 public class Choice2 {
 
 	public Choice2(From[] from, String type, Integer choose) {
