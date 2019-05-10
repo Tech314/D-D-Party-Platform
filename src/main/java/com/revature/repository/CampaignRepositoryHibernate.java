@@ -52,7 +52,7 @@ public class CampaignRepositoryHibernate implements CampaignRepository {
 				.add(Restrictions.like("campaign_name", username))
 				.add(Restrictions.like("campaign_pass", password))
 				.list()
-				.get(0);
+			    .get(0);
 	}
 
 }

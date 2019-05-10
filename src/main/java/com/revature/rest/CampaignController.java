@@ -11,4 +11,5 @@ public interface CampaignController {
 	ResponseEntity<ClientMessage> makeCampaign(Campaign campaign);
 	ResponseEntity<CampaignList> findAllCampaigns();
 	ResponseEntity<Campaign> findCampaignById(Campaign campaign);
+	ResponseEntity<Campaign> loginToCampaign(String username,String password);
 }

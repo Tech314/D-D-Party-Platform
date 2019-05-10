@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Campaign;
@@ -29,6 +30,16 @@ public class CampaignControllerAlpha implements CampaignController{
 	
 	@Autowired
 	private CampaignService campaignService;
+	
+	@GetMapping("loginToCampaign")
+	public ResponseEntity<Campaign> loginToCampaign(@RequestParam("username") String campaignName,
+			                                        @RequestParam("password") String campaignPass) {
+		logger.trace("Attempting login");
+		Campaign validCampaign = campaignService.loginToCampaign(campaignName,campaignPass);
+		return (validCampaign != null) ?
+				new ResponseEntity<>(validCampaign,HttpStatus.OK) :
+				new ResponseEntity<>(HttpStatus.NOT_FOUND); 
+	}
 	
 	@GetMapping("all")
 	public ResponseEntity<CampaignList> findAllCampaigns() {
@@ -53,10 +64,6 @@ public class CampaignControllerAlpha implements CampaignController{
 				new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@GetMapping("loginToCampaign")
-	public Campaign loginToCampaign(@RequestBody Campaign camp) {
-		logger.trace("Attempting login");
-		return campaignService.loginToCampaign(camp.getCampaignName(),camp.getCampaignPass());
-	}
+	
 
 }
