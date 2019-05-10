@@ -33,7 +33,7 @@ public class CampaignControllerAlpha implements CampaignController{
 	
 	@GetMapping("loginToCampaign")
 	public ResponseEntity<Campaign> loginToCampaign(@RequestParam("username") String campaignName,
-			                                        @RequestParam("password") String campaignPass) {
+			                                        @RequestParam("password") String campaignPass ) {
 		logger.trace("Attempting login");
 		Campaign validCampaign = campaignService.loginToCampaign(campaignName,campaignPass);
 		return (validCampaign != null) ?
