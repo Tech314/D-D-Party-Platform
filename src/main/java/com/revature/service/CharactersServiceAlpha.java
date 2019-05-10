@@ -1,14 +1,19 @@
 package com.revature.service;
 
 import java.util.List;
-import java.lang.Math;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.revature.model.CharacterClass;
+import com.revature.model.CharacterRace;
 import com.revature.model.Characters;
+import com.revature.model.ClassStartingEquipment;
+import com.revature.model.Classs;
+import com.revature.model.Item;
+import com.revature.model.StartingEquipment;
 import com.revature.repository.CharactersRepository;
 
 @Service("charactersService")
@@ -18,6 +23,7 @@ public class CharactersServiceAlpha implements CharactersService{
 	
 	@Autowired
 	private CharactersRepository charactersRepository;
+	private Characters character;
 
 
 
@@ -49,9 +55,11 @@ public class CharactersServiceAlpha implements CharactersService{
 		int x = (int) Math.floor(10 * Math.random());
 		RestTemplate restTemplate = new RestTemplate();
 		String api_url = "http://dnd5eapi.co/api/races/" + x;
-		Characters character = restTemplate.getForObject(api_url, Characters.class);
+		CharacterRace race = (restTemplate.getForObject(api_url, CharacterRace.class));
+		character.setCharRace(race.getName()); 
 		return character;
 	}
+
 
 	@Override
 	public Characters getClasses() {
@@ -62,34 +70,36 @@ public class CharactersServiceAlpha implements CharactersService{
 		}
 		String z = "";
 			switch(x) {
-			case 1: z = "Barbarian";
+			case 1: z = "barbarian";
 			break;
-			case 2: z = "Bard";
+			case 2: z = "bard";
 			break;
-			case 3: z = "Cleric";
+			case 3: z = "cleric";
 			break;
-			case 4: z = "Druid";
+			case 4: z = "druid";
 			break;
-			case 5: z = "Fighter";
+			case 5: z = "fighter";
 			break;
-			case 6: z = "Monk";
+			case 6: z = "monk";
 			break;
-			case 7: z = "Paladin";
+			case 7: z = "paladin";
 			break;
-			case 8: z = "Ranger";
+			case 8: z = "ranger";
 			break;
-			case 9: z = "Rogue";
+			case 9: z = "rogue";
 			break;
-			case 10: z = "Sorcerer";
+			case 10: z = "sorcerer";
 			break;
-			case 11: z = "Warlock";
+			case 11: z = "warlock";
 			break;
-			case 12: z = "Wizard";
+			case 12: z = "wizard";
 			break;
 			}
 		RestTemplate restTemplate = new RestTemplate();
 		String api_url = "http://dnd5eapi.co/api/classes/" + z + "/level/1" ;
-		Characters character = restTemplate.getForObject(api_url, Characters.class);
+		CharacterClass characterClass = restTemplate.getForObject(api_url, CharacterClass.class);
+		Classs classs = characterClass.getClasss();
+		character.setCharClass(classs.getName());
 		return character;
 	}
 
@@ -117,8 +127,7 @@ public class CharactersServiceAlpha implements CharactersService{
 			}
 			
 		}
-		RestTemplate restTemplate = new RestTemplate();
-		Characters character = restTemplate.getForObject(stats, Characters.class);
+		character.setStats(stats);
 		return character;
 	}
 
@@ -127,34 +136,37 @@ public class CharactersServiceAlpha implements CharactersService{
 		logger.trace("Getting equipment");
 		int z = 0;
 		switch(classs) {
-		case "Barbarian": z = 1;
+		case "barbarian": z = 1;
 		break;
-		case "Bard": z = 2;
+		case "bard": z = 2;
 		break;
-		case "Cleric": z = 3;
+		case "cleric": z = 3;
 		break;
-		case "Druid": z = 4;
+		case "druid": z = 4;
 		break;
-		case "Fighter": z = 5;
+		case "fighter": z = 5;
 		break;
-		case "Monk": z = 6;
+		case "monk": z = 6;
 		break;
-		case "Paladin": z = 7;
+		case "paladin": z = 7;
 		break;
-		case "Ranger": z = 8;
+		case "ranger": z = 8;
 		break;
-		case "Rogue": z = 9;
+		case "rogue": z = 9;
 		break;
-		case "Sorcerer": z = 10;
+		case "sorcerer": z = 10;
 		break;
-		case "Warlock": z = 11;
+		case "warlock": z = 11;
 		break;
-		case "Wizard": z = 12;
+		case "wizard": z = 12;
 		break;
 		}
 		RestTemplate restTemplate = new RestTemplate();
 		String api_url = "http://dnd5eapi.co/api/startingequipment/" + z;
-		Characters character = restTemplate.getForObject(api_url, Characters.class);
+		ClassStartingEquipment equipment =restTemplate.getForObject(api_url, ClassStartingEquipment.class);;
+		StartingEquipment startingEquipment = equipment.getStarting_equipment();
+		Item item = startingEquipment.getItem();
+		character.setEquipment(item.getName());
 		return character;
 	}
 
@@ -205,8 +217,7 @@ public class CharactersServiceAlpha implements CharactersService{
 		case 20 : name = "Jervalhe";
 			break;
 		}
-		RestTemplate restTemplate = new RestTemplate();
-		Characters character = restTemplate.getForObject(name, Characters.class);
+		character.setCharName(name);
 		return character;
 	}
 }
