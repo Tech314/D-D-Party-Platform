@@ -15,7 +15,7 @@ public class Campaign {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="DNDCamp")
 	@SequenceGenerator(name="DNDCamp",sequenceName="DNDCamp_seq",allocationSize=1)
 	@Column(name="campaign_id")
-	private int campaignId;
+	private Integer campaignId;
 	
 	@Column(name="campaign_name")
 	private String campaignName;
@@ -24,27 +24,27 @@ public class Campaign {
 	private String campaignPass;
 	
 	@Column(name="char1")
-	private int char1;
+	private Integer char1;
 	
 	@Column(name="char2")
-	private int char2;
+	private Integer char2;
 	
 	@Column(name="char3")
-	private int char3;
+	private Integer char3;
 	
 	@Column(name="char4")
-	private int char4;
+	private Integer char4;
 	
 	@Column(name="char5")
-	private int char5;
+	private Integer char5;
 	
 	@Column(name="char6")
-	private int char6;
+	private Integer char6;
 	
 	public Campaign() {}
 
-	public Campaign(int campaignId, String campaignName, String campaignPass, int char1, int char2, int char3,
-			int char4, int char5, int char6) {
+	public Campaign(Integer campaignId, String campaignName, String campaignPass, Integer char1, Integer char2, Integer char3,
+			Integer char4, Integer char5, Integer char6) {
 		this.campaignId = campaignId;
 		this.campaignName = campaignName;
 		this.campaignPass = campaignPass;
@@ -56,11 +56,11 @@ public class Campaign {
 		this.char6 = char6;
 	}
 
-	public int getCampaignId() {
+	public Integer getCampaignId() {
 		return campaignId;
 	}
 
-	public void setCampaignId(int campaignId) {
+	public void setCampaignId(Integer campaignId) {
 		this.campaignId = campaignId;
 	}
 
@@ -80,51 +80,51 @@ public class Campaign {
 		this.campaignPass = campaignPass;
 	}
 
-	public int getChar1() {
+	public Integer getChar1() {
 		return char1;
 	}
 
-	public void setChar1(int char1) {
+	public void setChar1(Integer char1) {
 		this.char1 = char1;
 	}
 
-	public int getChar2() {
+	public Integer getChar2() {
 		return char2;
 	}
 
-	public void setChar2(int char2) {
+	public void setChar2(Integer char2) {
 		this.char2 = char2;
 	}
 
-	public int getChar3() {
+	public Integer getChar3() {
 		return char3;
 	}
 
-	public void setChar3(int char3) {
+	public void setChar3(Integer char3) {
 		this.char3 = char3;
 	}
 
-	public int getChar4() {
+	public Integer getChar4() {
 		return char4;
 	}
 
-	public void setChar4(int char4) {
+	public void setChar4(Integer char4) {
 		this.char4 = char4;
 	}
 
-	public int getChar5() {
+	public Integer getChar5() {
 		return char5;
 	}
 
-	public void setChar5(int char5) {
+	public void setChar5(Integer char5) {
 		this.char5 = char5;
 	}
 
-	public int getChar6() {
+	public Integer getChar6() {
 		return char6;
 	}
 
-	public void setChar6(int char6) {
+	public void setChar6(Integer char6) {
 		this.char6 = char6;
 	}
 

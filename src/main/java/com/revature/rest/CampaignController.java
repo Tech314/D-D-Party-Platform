@@ -1,12 +1,14 @@
+    
 package com.revature.rest;
 
-import java.util.List;
+import org.springframework.http.ResponseEntity;
 
 import com.revature.model.Campaign;
+import com.revature.model.CampaignList;
+import com.revature.util.ClientMessage;
 
 public interface CampaignController {
-	public boolean makeCampaign(Campaign campaign);
-	List<Campaign> findAllCampaigns();
-	Campaign findCampaignById(int id);
-	Campaign loginToCampaign(Campaign camp);
+	ResponseEntity<ClientMessage> makeCampaign(Campaign campaign);
+	ResponseEntity<CampaignList> findAllCampaigns();
+	ResponseEntity<Campaign> findCampaignById(Campaign campaign);
 }

@@ -13,8 +13,9 @@ import com.revature.repository.CharactersRepository;
 
 @Service("charactersService")
 public class CharactersServiceAlpha implements CharactersService{
-	private static Logger logger = Logger.getLogger(CharactersServiceAlpha.class);
 
+	private final Logger logger = Logger.getLogger(CharactersServiceAlpha.class);
+	
 	@Autowired
 	private CharactersRepository charactersRepository;
 
@@ -100,7 +101,21 @@ public class CharactersServiceAlpha implements CharactersService{
 		int i = 0;
 		while(i < stat.length) {
 			stat[i] += Math.floor(8 * Math.random());
-			stats += Integer.toString(stat[i]);
+			switch(i) {
+			case 0: stats += ("Str:" + Integer.toString(stat[i]));
+			break;
+			case 1: stats += ("Dex:" + Integer.toString(stat[i]));
+			break;
+			case 2: stats += ("Con:" + Integer.toString(stat[i]));
+			break;
+			case 3: stats += ("Int:" + Integer.toString(stat[i]));
+			break;
+			case 4: stats += ("Wis:" + Integer.toString(stat[i]));
+			break;
+			case 5: stats += ("Cha:" + Integer.toString(stat[i]));
+			break;
+			}
+			
 		}
 		RestTemplate restTemplate = new RestTemplate();
 		Characters character = restTemplate.getForObject(stats, Characters.class);

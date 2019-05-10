@@ -73,7 +73,7 @@ public class Characters {
 		return charRace;
 	}
 	
-	public void setCharRace() {
+	public void setCharRace(String charRace) {
 		this.charRace = charRace;
 	}
 	
@@ -81,7 +81,7 @@ public class Characters {
 		return charClass;
 	}
 	
-	public void setCharClass() {
+	public void setCharClass(String charClass) {
 		this.charClass = charClass;
 	}
 	public int getCharId() {

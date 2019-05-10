@@ -20,6 +20,7 @@
 	<!-- Scan specific packages for annotations -->
 	<context:component-scan base-package="com.revature.repository" />
 	<context:component-scan base-package="com.revature.service" />
+	<context:component-scan base-package="com.revature.rest" />
 	
 	<!-- Hibernate Integration with Contexual Sessions -->
 	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

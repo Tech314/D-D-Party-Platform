@@ -1,6 +1,6 @@
 package com.revature.rest;
 
-public class dndApiController {
+public interface dndApiController {
 
 	
 }
