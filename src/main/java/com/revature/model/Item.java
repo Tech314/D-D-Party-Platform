@@ -25,4 +25,11 @@ public class Item {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [name=" + name + ", url=" + url + "]";
+	}
+	
+	
 }

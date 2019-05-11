@@ -14,7 +14,7 @@ public class CharacterClass {
 	private Integer index;
 
 	@JsonProperty("class")
-	private Classs clazz;
+	private Clazz clazz;
 	private String url;
 	private Spellcasting spellcasting;
 	
@@ -22,7 +22,7 @@ public class CharacterClass {
 	
 	public CharacterClass(String _id, Integer level, Integer ability_score_bonuses, Integer prof_bouse,
 			FeatureChoices[] feature_choices, Features[] features, ClassSpecific class_specific, Integer index,
-			Classs clazz, String url, Spellcasting spellcasting) {
+			Clazz clazz, String url, Spellcasting spellcasting) {
 		super();
 		this._id = _id;
 		this.level = level;
@@ -85,10 +85,10 @@ public class CharacterClass {
 	public void setIndex(Integer index) {
 		this.index = index;
 	}
-	public Classs getClasss() {
+	public Clazz getClasss() {
 		return clazz;
 	}
-	public void setClasss(Classs clazz) {
+	public void setClasss(Clazz clazz) {
 		this.clazz = clazz;
 	}
 	public String getUrl() {

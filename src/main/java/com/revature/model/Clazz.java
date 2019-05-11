@@ -1,29 +1,38 @@
 package com.revature.model;
 
-public class Classs {
+public class Clazz {
 
 	private String name;
 	private String url;
-	
-	public Classs() {}
-	
-	public Classs(String name, String url) {
+
+	public Clazz() {
+	}
+
+	public Clazz(String name, String url) {
 		super();
 		this.name = name;
 		this.url = url;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getUrl() {
 		return url;
 	}
+
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Clazz [name=" + name + ", url=" + url + "]";
+	}
+
 }
