@@ -53,30 +53,30 @@ public class Characters {
 	private String charClass;
 
 	@Column(name = "strength")
-	private int str;
+	private Integer str;
 
 	@Column(name = "dexterity")
-	private int dex;
+	private Integer dex;
 
 	@Column(name = "constitution")
-	private int con;
+	private Integer con;
 
 	@Column(name = "intelligence")
 	@JsonProperty("int")
-	private int intelligence;
+	private Integer intelligence;
 
 	@Column(name = "wisdom")
-	private int wis;
+	private Integer wis;
 
 	@Column(name = "charisma")
-	private int cha;
+	private Integer cha;
 
 	public Characters() {
 	}
 
 	public Characters(int charId, String charName, int charLvl, int charExp, String equipment, String items,
-			String skills, String traits, String stats, String attackSpells, String charRace, String charClass, int str,
-			int dex, int con, int intelligence, int wis, int cha) {
+			String skills, String traits, String stats, String attackSpells, String charRace, String charClass, Integer str,
+			Integer dex, Integer con, Integer intelligence, Integer wis, Integer cha) {
 		this.charId = charId;
 		this.charName = charName;
 		this.charLvl = charLvl;
@@ -193,51 +193,51 @@ public class Characters {
 		this.attackSpells = attackSpells;
 	}
 
-	public int getStr() {
+	public Integer getStr() {
 		return str;
 	}
 
-	public void setStr(int str) {
+	public void setStr(Integer str) {
 		this.str = str;
 	}
 
-	public int getDex() {
+	public Integer getDex() {
 		return dex;
 	}
 
-	public void setDex(int dex) {
+	public void setDex(Integer dex) {
 		this.dex = dex;
 	}
 
-	public int getCon() {
+	public Integer getCon() {
 		return con;
 	}
 
-	public void setCon(int con) {
+	public void setCon(Integer con) {
 		this.con = con;
 	}
 
-	public int getIntelligence() {
+	public Integer getIntelligence() {
 		return intelligence;
 	}
 
-	public void setIntelligence(int intelligence) {
+	public void setIntelligence(Integer intelligence) {
 		this.intelligence = intelligence;
 	}
 
-	public int getWis() {
+	public Integer getWis() {
 		return wis;
 	}
 
-	public void setWis(int wis) {
+	public void setWis(Integer wis) {
 		this.wis = wis;
 	}
 
-	public int getCha() {
+	public Integer getCha() {
 		return cha;
 	}
 
-	public void setCha(int cha) {
+	public void setCha(Integer cha) {
 		this.cha = cha;
 	}
 

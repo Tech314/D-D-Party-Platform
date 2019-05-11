@@ -2,6 +2,8 @@ package com.revature.rest;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.ResponseEntity;
 
 import com.revature.model.Characters;
@@ -15,5 +17,6 @@ public interface CharacterController {
 	ResponseEntity<Characters> getName();
 	List<Characters> findAllCharacters();
 	Characters findCharacter(Characters character);
-
+	ResponseEntity<Characters> saveCharacter(Characters character);
+	ResponseEntity<?> createCharacter(Characters character,HttpServletRequest request);
 }

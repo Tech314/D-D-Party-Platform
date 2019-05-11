@@ -2,6 +2,8 @@ package com.revature.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,7 @@ public class CampaignServiceAlpha implements CampaignService{
 		return campaignRepository.findAll();
 	}
 
-	public Campaign getCampaignById(int id) {
-		return campaignRepository.findById(id);
+	public Campaign getCampaignById(HttpServletRequest request) {
+		return campaignRepository.findById(Integer.parseInt((String)request.getSession(false).getAttribute("campaignId")));
 	}
 }

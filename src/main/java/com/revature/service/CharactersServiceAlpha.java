@@ -2,17 +2,21 @@ package com.revature.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.revature.model.Campaign;
 import com.revature.model.CharacterClass;
 import com.revature.model.CharacterRace;
 import com.revature.model.Characters;
 import com.revature.model.Clazz;
 import com.revature.model.Equipment;
 import com.revature.model.StartingEquipment;
+import com.revature.repository.CampaignRepository;
 import com.revature.repository.CharactersRepository;
 
 @Service("charactersService")
@@ -22,12 +26,38 @@ public class CharactersServiceAlpha implements CharactersService{
 	
 	@Autowired
 	private CharactersRepository charactersRepository;
+	
+	@Autowired
+	private CampaignRepository campaignRepository;
 
 	Characters character = new Characters();
 
 
-	public boolean createCharacters(Characters characters) {
+	public boolean createCharacters(Characters characters, HttpServletRequest request) {
 		charactersRepository.save(characters);
+		Campaign currentCampaign = campaignRepository.findById(Integer.parseInt((String)request.getSession(false).getAttribute("campaignId")));
+		
+		if(currentCampaign.getChar1() == null) {
+			currentCampaign.setChar1(characters.getCharId());
+		}
+		else if(currentCampaign.getChar2() == null) {
+			currentCampaign.setChar2(characters.getCharId());
+		}
+		else if(currentCampaign.getChar3() == null) {
+			currentCampaign.setChar3(characters.getCharId());
+		}
+		else if(currentCampaign.getChar4() == null) {
+			currentCampaign.setChar4(characters.getCharId());
+		}
+		else if(currentCampaign.getChar5() == null) {
+			currentCampaign.setChar5(characters.getCharId());
+		}
+		else if(currentCampaign.getChar6() == null) {
+			currentCampaign.setChar6(characters.getCharId());
+		}
+		
+		campaignRepository.save(currentCampaign);
+		
 		return characters.getCharId() !=0;
 	}
 

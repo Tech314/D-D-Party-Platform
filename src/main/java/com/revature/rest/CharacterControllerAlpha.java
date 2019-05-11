@@ -5,6 +5,8 @@ package com.revature.rest;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,6 +46,21 @@ public class CharacterControllerAlpha implements CharacterController {
 	public Characters findCharacter(@RequestBody Characters character) {
 		logger.trace("find character with name: " + character.getCharName());
 		return charService.getCharactersById((character.getCharId()));
+	}
+	
+	@PutMapping("/save")
+	public ResponseEntity<Characters> saveCharacter(@RequestBody Characters character){
+		charService.updateCharacters(character);
+		return new ResponseEntity<>(character,HttpStatus.OK);
+	}
+	
+	@PostMapping("/create")
+	public ResponseEntity<?> createCharacter(@RequestBody Characters character, HttpServletRequest request){
+		boolean persisted = charService.createCharacters(character,request);
+		
+		return (persisted) ?
+				new ResponseEntity<>(HttpStatus.CREATED) :
+				new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 
 

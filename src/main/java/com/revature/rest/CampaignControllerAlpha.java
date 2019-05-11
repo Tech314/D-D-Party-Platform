@@ -3,6 +3,8 @@ package com.revature.rest;
 import static com.revature.util.ClientMessageUtil.CAMPAIGN_CREATED_SUCCESSFULLY;
 import static com.revature.util.ClientMessageUtil.SOMETHING_WENT_WRONG;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,10 +48,10 @@ public class CampaignControllerAlpha implements CampaignController{
 				new ResponseEntity<>(SOMETHING_WENT_WRONG,HttpStatus.BAD_REQUEST);
 	}
 
-	@PostMapping("find")
-	public ResponseEntity<Campaign> findCampaignById(@RequestBody Campaign campaign) {
+	@GetMapping("find")
+	public ResponseEntity<Campaign> findCampaignById(HttpServletRequest request) {
 		logger.trace("Getting campaign by Id");
-		Campaign foundCampaign = campaignService.getCampaignById(campaign.getCampaignId());
+		Campaign foundCampaign = campaignService.getCampaignById(request);
 		return (foundCampaign != null) ?
 				new ResponseEntity<>(foundCampaign,HttpStatus.OK) :
 				new ResponseEntity<>(HttpStatus.NOT_FOUND);
