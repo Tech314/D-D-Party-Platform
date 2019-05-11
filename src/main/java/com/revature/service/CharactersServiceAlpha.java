@@ -122,9 +122,9 @@ public class CharactersServiceAlpha implements CharactersService{
 			case 4: stats += ("Wis:" + Integer.toString(stat[i]));
 			break;
 			case 5: stats += ("Cha:" + Integer.toString(stat[i]));
-			break;
+			break; 
 			}
-			
+			i++;
 		}
 		character.setStats(stats);
 		return character;
