@@ -1,24 +1,28 @@
 package com.revature.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CharacterClass {
 
 	private String _id;
 	private Integer level;
 	private Integer ability_score_bonuses;
 	private Integer prof_bouse;
-	private FeatureChoices feature_choices;
-	private Features features;
+	private FeatureChoices[] feature_choices;
+	private Features[] features;
 	private ClassSpecific class_specific;
 	private Integer index;
-	private Classs classs;
+
+	@JsonProperty("class")
+	private Classs clazz;
 	private String url;
 	private Spellcasting spellcasting;
 	
 	public CharacterClass() {}
 	
 	public CharacterClass(String _id, Integer level, Integer ability_score_bonuses, Integer prof_bouse,
-			FeatureChoices feature_choices, Features features, ClassSpecific class_specific, Integer index,
-			Classs classs, String url, Spellcasting spellcasting) {
+			FeatureChoices[] feature_choices, Features[] features, ClassSpecific class_specific, Integer index,
+			Classs clazz, String url, Spellcasting spellcasting) {
 		super();
 		this._id = _id;
 		this.level = level;
@@ -28,7 +32,7 @@ public class CharacterClass {
 		this.features = features;
 		this.class_specific = class_specific;
 		this.index = index;
-		this.classs = classs;
+		this.clazz = clazz;
 		this.url = url;
 		this.spellcasting = spellcasting;
 	}
@@ -57,16 +61,16 @@ public class CharacterClass {
 	public void setProf_bouse(Integer prof_bouse) {
 		this.prof_bouse = prof_bouse;
 	}
-	public FeatureChoices getFeature_choices() {
+	public FeatureChoices[] getFeature_choices() {
 		return feature_choices;
 	}
-	public void setFeature_choices(FeatureChoices feature_choices) {
+	public void setFeature_choices(FeatureChoices[] feature_choices) {
 		this.feature_choices = feature_choices;
 	}
-	public Features getFeatures() {
+	public Features[] getFeatures() {
 		return features;
 	}
-	public void setFeatures(Features features) {
+	public void setFeatures(Features[] features) {
 		this.features = features;
 	}
 	public ClassSpecific getClass_specific() {
@@ -82,10 +86,10 @@ public class CharacterClass {
 		this.index = index;
 	}
 	public Classs getClasss() {
-		return classs;
+		return clazz;
 	}
-	public void setClasss(Classs classs) {
-		this.classs = classs;
+	public void setClasss(Classs clazz) {
+		this.clazz = clazz;
 	}
 	public String getUrl() {
 		return url;

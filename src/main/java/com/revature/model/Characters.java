@@ -8,52 +8,75 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name="characters")
+@Table(name = "characters")
 public class Characters {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="DND")
-	@SequenceGenerator(name="DND",sequenceName="DNDChar_seq",allocationSize=1)
-	@Column(name="charid")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DND")
+	@SequenceGenerator(name = "DND", sequenceName = "DNDChar_seq", allocationSize = 1)
+	@Column(name = "charid")
 	private int charId;
-	
-	@Column(name="charname")
+
+	@Column(name = "charname")
 	private String charName;
-	
-	@Column(name="charlvl")
+
+	@Column(name = "charlvl")
 	private int charLvl;
-	
-	@Column(name="charexp")
+
+	@Column(name = "charexp")
 	private int charExp;
-	
-	@Column(name="equipment")
+
+	@Column(name = "equipment")
 	private String equipment;
-	
-	@Column(name="items")
+
+	@Column(name = "items")
 	private String items;
-	
-	@Column(name="skills")
+
+	@Column(name = "skills")
 	private String skills;
-	
-	@Column(name="traits")
+
+	@Column(name = "traits")
 	private String traits;
-	
-	@Column(name="stats")
+
+	@Column(name = "stats")
 	private String stats;
-	
-	@Column(name="attacks_spells")
+
+	@Column(name = "attacks_spells")
 	private String attackSpells;
-	
-	@Column(name="race")
+
+	@Column(name = "race")
 	private String charRace;
-	
-	@Column(name="class")
+
+	@Column(name = "class")
 	private String charClass;
-	
-	public Characters() {}
+
+	@Column(name = "strength")
+	private int str;
+
+	@Column(name = "dexterity")
+	private int dex;
+
+	@Column(name = "constitution")
+	private int con;
+
+	@Column(name = "intelligence")
+	@JsonProperty("int")
+	private int intelligence;
+
+	@Column(name = "wisdom")
+	private int wis;
+
+	@Column(name = "charisma")
+	private int cha;
+
+	public Characters() {
+	}
 
 	public Characters(int charId, String charName, int charLvl, int charExp, String equipment, String items,
-			String skills, String traits, String stats, String attackSpells, String charRace, String charClass) {
+			String skills, String traits, String stats, String attackSpells, String charRace, String charClass, int str,
+			int dex, int con, int intelligence, int wis, int cha) {
 		this.charId = charId;
 		this.charName = charName;
 		this.charLvl = charLvl;
@@ -66,24 +89,30 @@ public class Characters {
 		this.attackSpells = attackSpells;
 		this.charRace = charRace;
 		this.charClass = charClass;
+		this.str = str;
+		this.dex = dex;
+		this.con = con;
+		this.intelligence = intelligence;
+		this.wis = wis;
+		this.cha = cha;
 	}
 
-	
 	public String getCharRace() {
 		return charRace;
 	}
-	
+
 	public void setCharRace(String charRace) {
 		this.charRace = charRace;
 	}
-	
+
 	public String getCharClass() {
 		return charClass;
 	}
-	
+
 	public void setCharClass(String charClass) {
 		this.charClass = charClass;
 	}
+
 	public int getCharId() {
 		return charId;
 	}
@@ -164,15 +193,61 @@ public class Characters {
 		this.attackSpells = attackSpells;
 	}
 
+	public int getStr() {
+		return str;
+	}
+
+	public void setStr(int str) {
+		this.str = str;
+	}
+
+	public int getDex() {
+		return dex;
+	}
+
+	public void setDex(int dex) {
+		this.dex = dex;
+	}
+
+	public int getCon() {
+		return con;
+	}
+
+	public void setCon(int con) {
+		this.con = con;
+	}
+
+	public int getIntelligence() {
+		return intelligence;
+	}
+
+	public void setIntelligence(int intelligence) {
+		this.intelligence = intelligence;
+	}
+
+	public int getWis() {
+		return wis;
+	}
+
+	public void setWis(int wis) {
+		this.wis = wis;
+	}
+
+	public int getCha() {
+		return cha;
+	}
+
+	public void setCha(int cha) {
+		this.cha = cha;
+	}
+
 	@Override
 	public String toString() {
 		return "Characters [charId=" + charId + ", charName=" + charName + ", charLvl=" + charLvl + ", charExp="
 				+ charExp + ", equipment=" + equipment + ", items=" + items + ", skills=" + skills + ", traits="
-				+ traits + ", stats=" + stats + ", attackSpells=" + attackSpells + ", charRace=" + charRace +
-				", charClass=" + charClass + "]";
+				+ traits + ", stats=" + stats + ", attackSpells=" + attackSpells + ", charRace=" + charRace
+				+ ", charClass=" + charClass + ", str=" + str + ", dex=" + dex + ", con=" + con + ", intelligence="
+				+ intelligence + ", wis=" + wis + ", cha=" + cha + "]";
 	}
-	
-	
-	
 
 }

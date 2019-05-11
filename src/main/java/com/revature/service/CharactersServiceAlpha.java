@@ -12,8 +12,7 @@ import com.revature.model.CharacterRace;
 import com.revature.model.Characters;
 import com.revature.model.ClassStartingEquipment;
 import com.revature.model.Classs;
-import com.revature.model.Item;
-import com.revature.model.StartingEquipment;
+import com.revature.model.Equipment;
 import com.revature.repository.CharactersRepository;
 
 @Service("charactersService")
@@ -23,9 +22,8 @@ public class CharactersServiceAlpha implements CharactersService{
 	
 	@Autowired
 	private CharactersRepository charactersRepository;
-	private Characters character;
 
-
+	Characters character = new Characters();
 
 
 	public boolean createCharacters(Characters characters) {
@@ -52,10 +50,11 @@ public class CharactersServiceAlpha implements CharactersService{
 	@Override
 	public Characters getRace() {
 		logger.trace("Getting race");
-		int x = (int) Math.floor(10 * Math.random());
+		int x = (int) Math.floor(9 * Math.random()) + 1;
 		RestTemplate restTemplate = new RestTemplate();
 		String api_url = "http://dnd5eapi.co/api/races/" + x;
 		CharacterRace race = (restTemplate.getForObject(api_url, CharacterRace.class));
+		logger.trace(race.getName());
 		character.setCharRace(race.getName()); 
 		return character;
 	}
@@ -163,10 +162,11 @@ public class CharactersServiceAlpha implements CharactersService{
 		}
 		RestTemplate restTemplate = new RestTemplate();
 		String api_url = "http://dnd5eapi.co/api/startingequipment/" + z;
-		ClassStartingEquipment equipment =restTemplate.getForObject(api_url, ClassStartingEquipment.class);;
-		StartingEquipment startingEquipment = equipment.getStarting_equipment();
-		Item item = startingEquipment.getItem();
-		character.setEquipment(item.getName());
+		ClassStartingEquipment equipment =restTemplate.getForObject(api_url, ClassStartingEquipment.class);
+		logger.info(equipment.toString());
+		Equipment[] startingEquipment = equipment.getStarting_equipment();
+		//Item item = startingEquipment.getItem();
+		character.setEquipment(startingEquipment.toString());
 		return character;
 	}
 

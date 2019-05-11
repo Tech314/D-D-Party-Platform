@@ -5,7 +5,7 @@ public class StartingProficiencyOptions {
 
 	private Integer choose;
 	private String type;
-	private From[] from;
+	private Equipment[] from;
 	
 	public StartingProficiencyOptions() {}
 	
@@ -21,14 +21,14 @@ public class StartingProficiencyOptions {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public From[] getFrom() {
+	public Equipment[] getFrom() {
 		return from;
 	}
-	public void setFrom(From[] from) {
+	public void setFrom(Equipment[] from) {
 		this.from = from;
 	}
 	
-	public StartingProficiencyOptions(Integer choose, String type, From[] from) {
+	public StartingProficiencyOptions(Integer choose, String type, Equipment[] from) {
 		super();
 		this.choose = choose;
 		this.type = type;

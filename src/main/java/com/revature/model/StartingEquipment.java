@@ -4,11 +4,11 @@ package com.revature.model;
 public class StartingEquipment {
 	
 	private Integer quantity;
-	private Item item;
+	private Item[] item;
 	
 	public StartingEquipment() {}
 	
-	public StartingEquipment(Integer quantity, Item item) {
+	public StartingEquipment(Integer quantity, Item[] item) {
 		super();
 		this.quantity = quantity;
 		this.item = item;
@@ -19,10 +19,10 @@ public class StartingEquipment {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public Item getItem() {
+	public Item[] getItem() {
 		return item;
 	}
-	public void setItem(Item item) {
+	public void setItem(Item[] item) {
 		this.item = item;
 	}
 

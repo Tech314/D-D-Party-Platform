@@ -1,18 +1,18 @@
 package com.revature.model;
 
 
-public class Choice1 {
+public class Choice {
 
-	private From[] from;
+	private Equipment[] from;
 	private String type;
 	private Integer choose;
 	
-	public Choice1() {}
+	public Choice() {}
 	
-	public From[] getFrom() {
+	public Equipment[] getFrom() {
 		return from;
 	}
-	public void setFrom(From[] from) {
+	public void setFrom(Equipment[] from) {
 		this.from = from;
 	}
 	public String getType() {
@@ -27,7 +27,7 @@ public class Choice1 {
 	public void setChoose(Integer choose) {
 		this.choose = choose;
 	}
-	public Choice1(From[] from, String type, Integer choose) {
+	public Choice(Equipment[] from, String type, Integer choose) {
 		super();
 		this.from = from;
 		this.type = type;

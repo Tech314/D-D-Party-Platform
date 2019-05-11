@@ -70,7 +70,7 @@ public class CharacterControllerAlpha implements CharacterController {
 
 
 	@PostMapping("/equipment")
-	public ResponseEntity<Characters> getEquipment(String classs) {
+	public ResponseEntity<Characters> getEquipment(@RequestBody String classs) {
 		Characters charEquipment = charService.getEquipment(classs);
 		return new ResponseEntity<>(charEquipment, HttpStatus.OK);
 	}
