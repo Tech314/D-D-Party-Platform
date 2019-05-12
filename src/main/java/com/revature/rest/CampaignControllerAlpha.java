@@ -2,6 +2,8 @@ package com.revature.rest;
 
 import static com.revature.util.ClientMessageUtil.CAMPAIGN_CREATED_SUCCESSFULLY;
 import static com.revature.util.ClientMessageUtil.SOMETHING_WENT_WRONG;
+import static com.revature.util.ClientMessageUtil.LOGOUT_SUCCESSFUL;
+import static com.revature.util.ClientMessageUtil.LOGOUT_UNSUCCESSFUL;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -68,6 +70,16 @@ public class CampaignControllerAlpha implements CampaignController{
 		return (foundCampaign != null) ?
 				new ResponseEntity<>(foundCampaign,HttpStatus.OK) :
 				new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+
+	@GetMapping("logout")
+	public ResponseEntity<ClientMessage> logout(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if(session != null) {
+			session.invalidate();
+			return new ResponseEntity<>(LOGOUT_SUCCESSFUL,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(LOGOUT_UNSUCCESSFUL,HttpStatus.I_AM_A_TEAPOT);
 	}
 
 	

@@ -14,4 +14,5 @@ public interface CampaignController {
 	ResponseEntity<CampaignList> findAllCampaigns();
 	ResponseEntity<Campaign> findCampaignById(HttpServletRequest request);
 	ResponseEntity<Campaign> loginToCampaign(String[] campaignCreds,HttpServletRequest request);
+	ResponseEntity<ClientMessage> logout(HttpServletRequest request);
 }

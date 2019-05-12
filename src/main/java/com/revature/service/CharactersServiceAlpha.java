@@ -130,8 +130,8 @@ public class CharactersServiceAlpha implements CharactersService{
 		CharacterClass characterClass = restTemplate.getForObject(api_url, CharacterClass.class);
 		Clazz classs = characterClass.getClasss();
 		character.setCharClass(classs.getName());
-		ClassSpecific spec = characterClass.getClass_specific();
-		character.setSkills(spec.toString());
+//		ClassSpecific spec = characterClass.getClass_specific();
+//		character.setSkills(spec.toString());
 		return character;
 	}
 
