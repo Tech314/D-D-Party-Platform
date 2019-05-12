@@ -1,8 +1,19 @@
 package com.revature.model;
 
+import java.util.Arrays;
 
 public class CharacterRace {
 
+	@Override
+	public String toString() {
+		return "CharacterRace [_id=" + _id + ", index=" + index + ", name=" + name + ", speed=" + speed
+				+ ", ability_bonuses=" + Arrays.toString(ability_bonuses) + ", alignment=" + alignment + ", age=" + age
+				+ ", size=" + size + ", size_description=" + size_description + ", starting_proficiencies="
+				+ Arrays.toString(starting_proficiencies) + ", starting_proficiency_options="
+				+ Arrays.toString(starting_proficiency_options) + ", languages=" + Arrays.toString(languages)
+				+ ", languag_desc=" + languag_desc + ", traits=" + Arrays.toString(traits) + ", subraces="
+				+ Arrays.toString(subraces) + ", url=" + url + "]";
+	}
 	private String _id;
 	private Integer index;
 	private String name;

@@ -1,8 +1,26 @@
 package com.revature.model;
 
+import java.util.Arrays;
 
 public class ClassSpecific {
 	
+	@Override
+	public String toString() {
+		return "ClassSpecific [rage_count=" + rage_count + ", rage_damage_bonus=" + rage_damage_bonus
+				+ ", brutal_critical_dice=" + brutal_critical_dice + ", arcane_recovery_levels="
+				+ arcane_recovery_levels + ", channel_divinity_charges=" + channel_divinity_charges
+				+ ", destroy_undead_cr=" + destroy_undead_cr + ", wild_shape_max_cr=" + wild_shape_max_cr
+				+ ", wild_shape_swim=" + wild_shape_swim + ", wild_shape_fly=" + wild_shape_fly + ", action_surges="
+				+ action_surges + ", indomitable_uses=" + indomitable_uses + ", extra_attacks=" + extra_attacks
+				+ ", martial_arts=" + martial_arts + ", ki_points=" + ki_points + ", unarmored_movement="
+				+ unarmored_movement + ", aura_range=" + aura_range + ", favored_enemies=" + favored_enemies
+				+ ", favored_terrain=" + favored_terrain + ", sneak_atack=" + sneak_atack + ", sorcery_points="
+				+ sorcery_points + ", metamagic_known=" + metamagic_known + ", creating_spell_slots="
+				+ Arrays.toString(creating_spell_slots) + ", invocations_known=" + invocations_known
+				+ ", mystic_arcanum_level_6=" + mystic_arcanum_level_6 + ", mystic_arcanum_level_7="
+				+ mystic_arcanum_level_7 + ", mystic_arcanum_level_8=" + mystic_arcanum_level_8
+				+ ", mystic_arcanum_level_9=" + mystic_arcanum_level_9 + "]";
+	}
 	private Integer rage_count;
 	private Integer rage_damage_bonus;
 	private Integer brutal_critical_dice;
