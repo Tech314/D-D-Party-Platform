@@ -1218,7 +1218,7 @@ var CustomInterceptor = (function () {
 var environment = {
     production: true
 };
-var DND_URL = "http://ec2-18-205-191-213.compute-1.amazonaws.com:8080/DnDPlatform/";
+var DND_URL = "http://localhost:8080/DnDPlatform/";
 
 
 /***/ }),
