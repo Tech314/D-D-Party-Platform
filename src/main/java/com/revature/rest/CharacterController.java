@@ -17,6 +17,11 @@ public interface CharacterController {
 	ResponseEntity<Characters> getName();
 	List<Characters> findAllCharacters();
 	Characters findCharacter(Characters character);
+<<<<<<< HEAD
 	ResponseEntity<Characters> saveCharacter(Characters character);
 	ResponseEntity<?> createCharacter(Characters character,HttpServletRequest request);
 }
+=======
+
+}
+>>>>>>> nick-login

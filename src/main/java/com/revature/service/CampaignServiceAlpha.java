@@ -28,4 +28,9 @@ public class CampaignServiceAlpha implements CampaignService{
 	public Campaign getCampaignById(HttpServletRequest request) {
 		return campaignRepository.findById(Integer.parseInt((String)request.getSession(false).getAttribute("campaignId")));
 	}
+
+	public Campaign loginToCampaign(String username, String password) {
+		
+		return campaignRepository.login(username, password);
+	}
 }

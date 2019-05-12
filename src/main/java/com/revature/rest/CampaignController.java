@@ -1,3 +1,4 @@
+    
 package com.revature.rest;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,5 +12,11 @@ import com.revature.util.ClientMessage;
 public interface CampaignController {
 	ResponseEntity<ClientMessage> makeCampaign(Campaign campaign);
 	ResponseEntity<CampaignList> findAllCampaigns();
+<<<<<<< HEAD
 	ResponseEntity<Campaign> findCampaignById(HttpServletRequest request);
 }
+=======
+	ResponseEntity<Campaign> findCampaignById(Campaign campaign);
+	ResponseEntity<Campaign> loginToCampaign(String username,String password);
+}
+>>>>>>> nick-login

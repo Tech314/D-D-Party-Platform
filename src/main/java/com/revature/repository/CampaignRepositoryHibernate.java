@@ -47,4 +47,12 @@ public class CampaignRepositoryHibernate implements CampaignRepository {
 		return sessionFactory.getCurrentSession().createCriteria(Campaign.class).list();
 	}
 
+	public Campaign login(String username, String password) {
+		return (Campaign) sessionFactory.getCurrentSession().createCriteria(Campaign.class)
+				.add(Restrictions.like("campaignName", username))
+				.add(Restrictions.like("campaignPass", password))
+				.list()
+			    .get(0);
+	}
+
 }
