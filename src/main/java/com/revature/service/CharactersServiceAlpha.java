@@ -13,7 +13,13 @@ import com.revature.model.Campaign;
 import com.revature.model.CharacterClass;
 import com.revature.model.CharacterRace;
 import com.revature.model.Characters;
+<<<<<<< HEAD
+import com.revature.model.ClassSpecific;
+import com.revature.model.ClassStartingEquipment;
+import com.revature.model.Classs;
+=======
 import com.revature.model.Clazz;
+>>>>>>> 2a927c5d4685ed25f730905fdf09e6e71964e1ef
 import com.revature.model.Equipment;
 import com.revature.model.StartingEquipment;
 import com.revature.repository.CampaignRepository;
@@ -129,6 +135,8 @@ public class CharactersServiceAlpha implements CharactersService{
 		CharacterClass characterClass = restTemplate.getForObject(api_url, CharacterClass.class);
 		Clazz classs = characterClass.getClasss();
 		character.setCharClass(classs.getName());
+		ClassSpecific spec = characterClass.getClass_specific();
+		character.setSkills(spec.toString());
 		return character;
 	}
 
