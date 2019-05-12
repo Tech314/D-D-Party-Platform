@@ -41,6 +41,10 @@ public class CampaignRepositoryHibernate implements CampaignRepository {
 		sessionFactory.getCurrentSession().save(campaign);
 		
 	}
+	
+	public void update(Campaign campaign) {
+		sessionFactory.getCurrentSession().update(campaign);
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Campaign> findAll() {

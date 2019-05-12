@@ -10,4 +10,5 @@ public interface CharactersRepository {
 	List<Characters> findAll();
 	Characters findById(int id);
 	void remove(Characters character);
+	void update(Characters character);
 }

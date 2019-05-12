@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import com.revature.model.Characters;
-import com.revature.model.ClassSpecific;
 
 public interface CharactersService {
 	Characters getRace();

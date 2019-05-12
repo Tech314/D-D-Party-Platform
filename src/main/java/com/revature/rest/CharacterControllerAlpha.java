@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Characters;
@@ -44,10 +43,10 @@ public class CharacterControllerAlpha implements CharacterController {
 	}
 
 	@PostMapping("/register")
-	public @ResponseBody ClientMessage registerCharacter(@RequestBody Characters character) {
+	public ClientMessage registerCharacter(@RequestBody Characters character, HttpServletRequest request) {
 		logger.trace("registering new character: " + character);
 	
-		return charService.createCharacters(character) ? REGISTRATION_SUCCESSFUL:SOMETHING_WENT_WRONG;
+		return charService.createCharacters(character, request) ? REGISTRATION_SUCCESSFUL:SOMETHING_WENT_WRONG;
 	}
 
 	@PostMapping("/findCharacter")

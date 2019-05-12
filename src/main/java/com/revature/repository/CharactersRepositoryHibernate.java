@@ -25,8 +25,12 @@ public class CharactersRepositoryHibernate implements CharactersRepository {
 	public CharactersRepositoryHibernate() {}
 
 	public void save(Characters character) {
+		character.setCharLvl(1);
 		sessionFactory.getCurrentSession().save(character);
-		
+	}
+	
+	public void update(Characters character) {
+		sessionFactory.getCurrentSession().update(character);
 	}
 
 	@SuppressWarnings("unchecked")

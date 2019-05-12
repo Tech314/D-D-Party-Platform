@@ -4,6 +4,7 @@ import static com.revature.util.ClientMessageUtil.CAMPAIGN_CREATED_SUCCESSFULLY;
 import static com.revature.util.ClientMessageUtil.SOMETHING_WENT_WRONG;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Campaign;
@@ -33,11 +33,15 @@ public class CampaignControllerAlpha implements CampaignController{
 	@Autowired
 	private CampaignService campaignService;
 	
-	@GetMapping("loginToCampaign")
-	public ResponseEntity<Campaign> loginToCampaign(@RequestParam("username") String campaignName,
-			                                        @RequestParam("password") String campaignPass ) {
+	@PostMapping("loginToCampaign")
+	public ResponseEntity<Campaign> loginToCampaign(@RequestBody String[] campaignCreds,
+			                                        HttpServletRequest request) {
 		logger.trace("Attempting login");
-		Campaign validCampaign = campaignService.loginToCampaign(campaignName,campaignPass);
+		Campaign validCampaign = campaignService.loginToCampaign(campaignCreds[0],campaignCreds[1]);
+		if(validCampaign != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("campaignId", validCampaign.getCampaignId());
+		}
 		return (validCampaign != null) ?
 				new ResponseEntity<>(validCampaign,HttpStatus.OK) :
 				new ResponseEntity<>(HttpStatus.NOT_FOUND); 

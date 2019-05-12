@@ -13,13 +13,8 @@ import com.revature.model.Campaign;
 import com.revature.model.CharacterClass;
 import com.revature.model.CharacterRace;
 import com.revature.model.Characters;
-<<<<<<< HEAD
 import com.revature.model.ClassSpecific;
-import com.revature.model.ClassStartingEquipment;
-import com.revature.model.Classs;
-=======
 import com.revature.model.Clazz;
->>>>>>> 2a927c5d4685ed25f730905fdf09e6e71964e1ef
 import com.revature.model.Equipment;
 import com.revature.model.StartingEquipment;
 import com.revature.repository.CampaignRepository;
@@ -41,7 +36,7 @@ public class CharactersServiceAlpha implements CharactersService{
 
 	public boolean createCharacters(Characters characters, HttpServletRequest request) {
 		charactersRepository.save(characters);
-		Campaign currentCampaign = campaignRepository.findById(Integer.parseInt((String)request.getSession(false).getAttribute("campaignId")));
+		Campaign currentCampaign = campaignRepository.findById((Integer)request.getSession(false).getAttribute("campaignId"));
 		
 		if(currentCampaign.getChar1() == null) {
 			currentCampaign.setChar1(characters.getCharId());
@@ -62,7 +57,7 @@ public class CharactersServiceAlpha implements CharactersService{
 			currentCampaign.setChar6(characters.getCharId());
 		}
 		
-		campaignRepository.save(currentCampaign);
+		campaignRepository.update(currentCampaign);
 		
 		return characters.getCharId() !=0;
 	}
@@ -76,7 +71,7 @@ public class CharactersServiceAlpha implements CharactersService{
 	}
 
 	public void updateCharacters(Characters characters) {
-		charactersRepository.save(characters);
+		charactersRepository.update(characters);
 	}
 
 	public void deleteCharacters(Characters characters) {

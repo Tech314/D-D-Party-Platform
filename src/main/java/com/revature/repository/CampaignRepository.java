@@ -8,6 +8,7 @@ public interface CampaignRepository {
 
 	Campaign findById(int id);
 	void save(Campaign campaign);
+	void update(Campaign campaign);
 	List<Campaign> findAll();
 	Campaign login(String username,String password);
 	
