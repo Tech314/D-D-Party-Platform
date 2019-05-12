@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import com.revature.model.CharacterClass;
 import com.revature.model.CharacterRace;
 import com.revature.model.Characters;
+import com.revature.model.ClassSpecific;
 import com.revature.model.ClassStartingEquipment;
 import com.revature.model.Classs;
 import com.revature.model.Equipment;
@@ -99,6 +100,8 @@ public class CharactersServiceAlpha implements CharactersService{
 		CharacterClass characterClass = restTemplate.getForObject(api_url, CharacterClass.class);
 		Classs classs = characterClass.getClasss();
 		character.setCharClass(classs.getName());
+		ClassSpecific spec = characterClass.getClass_specific();
+		character.setSkills(spec.toString());
 		return character;
 	}
 

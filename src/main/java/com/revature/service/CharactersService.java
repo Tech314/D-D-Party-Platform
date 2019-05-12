@@ -3,6 +3,7 @@ package com.revature.service;
 import java.util.List;
 
 import com.revature.model.Characters;
+import com.revature.model.ClassSpecific;
 
 public interface CharactersService {
 	Characters getRace();
