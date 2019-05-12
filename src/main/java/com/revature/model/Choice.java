@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import java.util.Arrays;
 
 public class Choice {
 
@@ -33,5 +34,12 @@ public class Choice {
 		this.type = type;
 		this.choose = choose;
 	}
+
+	@Override
+	public String toString() {
+		return "Choice [from=" + Arrays.toString(from) + ", type=" + type + ", choose=" + choose + "]";
+	}
+	
+	
 	
 }

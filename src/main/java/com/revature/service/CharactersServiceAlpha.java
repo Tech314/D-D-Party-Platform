@@ -10,10 +10,15 @@ import org.springframework.web.client.RestTemplate;
 import com.revature.model.CharacterClass;
 import com.revature.model.CharacterRace;
 import com.revature.model.Characters;
+<<<<<<< HEAD
 import com.revature.model.ClassSpecific;
 import com.revature.model.ClassStartingEquipment;
 import com.revature.model.Classs;
+=======
+import com.revature.model.Clazz;
+>>>>>>> 2a927c5d4685ed25f730905fdf09e6e71964e1ef
 import com.revature.model.Equipment;
+import com.revature.model.StartingEquipment;
 import com.revature.repository.CharactersRepository;
 
 @Service("charactersService")
@@ -98,7 +103,7 @@ public class CharactersServiceAlpha implements CharactersService{
 		RestTemplate restTemplate = new RestTemplate();
 		String api_url = "http://dnd5eapi.co/api/classes/" + z + "/level/1" ;
 		CharacterClass characterClass = restTemplate.getForObject(api_url, CharacterClass.class);
-		Classs classs = characterClass.getClasss();
+		Clazz classs = characterClass.getClasss();
 		character.setCharClass(classs.getName());
 		ClassSpecific spec = characterClass.getClass_specific();
 		character.setSkills(spec.toString());
@@ -114,21 +119,22 @@ public class CharactersServiceAlpha implements CharactersService{
 		while(i < stat.length) {
 			stat[i] += Math.floor(8 * Math.random());
 			switch(i) {
-			case 0: stats += ("Str:" + Integer.toString(stat[i]));
+			case 0: stats += (Integer.toString(stat[i]) + ",");
 			break;
-			case 1: stats += ("Dex:" + Integer.toString(stat[i]));
+			case 1: stats += (Integer.toString(stat[i]) + ",");
 			break;
-			case 2: stats += ("Con:" + Integer.toString(stat[i]));
+			case 2: stats += (Integer.toString(stat[i]) + ",");
 			break;
-			case 3: stats += ("Int:" + Integer.toString(stat[i]));
+			case 3: stats += (Integer.toString(stat[i]) + ",");
 			break;
-			case 4: stats += ("Wis:" + Integer.toString(stat[i]));
+			case 4: stats += (Integer.toString(stat[i]) + ",");
 			break;
-			case 5: stats += ("Cha:" + Integer.toString(stat[i]));
+			case 5: stats += (Integer.toString(stat[i]) + ",");
 			break; 
 			}
 			i++;
 		}
+		logger.info(stats);
 		character.setStats(stats);
 		return character;
 	}
@@ -137,7 +143,7 @@ public class CharactersServiceAlpha implements CharactersService{
 	public Characters getEquipment(String classs) {
 		logger.trace("Getting equipment");
 		int z = 0;
-		switch(classs) {
+		switch(classs.toLowerCase()) {
 		case "barbarian": z = 1;
 		break;
 		case "bard": z = 2;
@@ -165,11 +171,33 @@ public class CharactersServiceAlpha implements CharactersService{
 		}
 		RestTemplate restTemplate = new RestTemplate();
 		String api_url = "http://dnd5eapi.co/api/startingequipment/" + z;
-		ClassStartingEquipment equipment =restTemplate.getForObject(api_url, ClassStartingEquipment.class);
+		StartingEquipment equipment =restTemplate.getForObject(api_url, StartingEquipment.class);
 		logger.info(equipment.toString());
-		Equipment[] startingEquipment = equipment.getStarting_equipment();
+		Equipment[] startingEquipment = equipment.getStartingEquipment();
 		//Item item = startingEquipment.getItem();
-		character.setEquipment(startingEquipment.toString());
+		String printEquip = "";
+		for(Equipment e : startingEquipment) {
+			printEquip +=  e.getQuantity() + "x " + e.getItem().getName() + "\n";
+		}
+		for(int i = 1; i <= equipment.getChoicesToMake(); i++) {
+			if(i == 1) {
+				printEquip += equipment.getChoice_1()[0].getFrom()[0].getItem().getName() + "\n";
+			}
+			if(i == 2) {
+				printEquip += equipment.getChoice_2()[0].getFrom()[0].getItem().getName() + "\n";
+			}
+			if(i == 3) {
+				printEquip += equipment.getChoice_3()[0].getFrom()[0].getItem().getName() + "\n";
+			}
+			if(i == 4) {
+				printEquip += equipment.getChoice_4()[0].getFrom()[0].getItem().getName() + "\n";
+			}
+			if(i == 5) {
+				printEquip += equipment.getChoice_5()[0].getFrom()[0].getItem().getName() + "\n";
+			}
+		}
+		
+		character.setEquipment(printEquip);
 		return character;
 	}
 

@@ -28,7 +28,9 @@ public class Equipment {
 
 	@Override
 	public String toString() {
-		return "From [quantity=" + quantity + ", item=" + item + "]";
+		return "Equipment [quantity=" + quantity + ", item=" + item + "]";
 	}
+
+	
 	
 }
