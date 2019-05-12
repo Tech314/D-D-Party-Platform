@@ -10,6 +10,7 @@ public class CharacterClass {
 	private Integer prof_bouse;
 	private FeatureChoices[] feature_choices;
 	private Features[] features;
+	@JsonProperty("skills")
 	private ClassSpecific class_specific;
 	private Integer index;
 
