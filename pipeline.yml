@@ -11,7 +11,7 @@ resources:
     configuration:
       sourceArtifactory: test
 pipelines:  
-  - name: build
+  - name: build_pipe
     steps:
       - name: step_1
         type: MvnBuild
