@@ -1,0 +1,28 @@
+resources:
+  - name: myGitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: aem_test
+      path: Tech314/D-D-Party-Platform
+      branches:
+        include: master        
+  - name: test
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: test
+pipelines:  
+  - name: build
+    steps:
+      - name: step_1
+        type: MvnBuild
+        configuration:
+          inputResources:
+            - name: myGitRepo  
+          mvnCommand: clean install
+          forceXrayScan: true
+          failOnScan: false
+          integrations:
+            - name: test
+        execution:
+          onStart:
+            - echo "Building..."
