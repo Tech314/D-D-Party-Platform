@@ -1,12 +1,12 @@
 resources:
-  - name: myGitRepo
+  - name: ddRepo
     type: GitRepo
     configuration:
       gitProvider: aem_test
       path: Tech314/D-D-Party-Platform
       branches:
         include: master        
-  - name: test
+  - name: art
     type: BuildInfo
     configuration:
       sourceArtifactory: test
@@ -17,12 +17,12 @@ pipelines:
         type: MvnBuild
         configuration:
           inputResources:
-            - name: myGitRepo  
+            - name: ddRepo  
           mvnCommand: clean install
           forceXrayScan: true
           failOnScan: false
           integrations:
-            - name: test
+            - name: art
         execution:
           onStart:
             - echo "Building..."
