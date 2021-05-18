@@ -22,7 +22,7 @@ pipelines:
           forceXrayScan: true
           failOnScan: false
           integrations:
-            - name: art
+            - name: test
         execution:
           onStart:
             - echo "Building..."
